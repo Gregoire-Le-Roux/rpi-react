@@ -1,20 +1,18 @@
-import { useState } from 'react'
+import './BlueButton.css';
+import Button from './Button';
+import { useState } from 'react';
 
-export function BlueButton() {
+function BlueButton() {
     const [nbClick, setNbClick] = useState(1);
+    const [color] = useState("Blue");
 
     const click = () => {
         setNbClick(nbClick + 1);
-        console.log("Nombre de clicks sur le bouton bleu : " + nbClick);
+        console.log("Nombre de clicks sur le bouton " + color + " : " + nbClick);
     }
 
     return(
-        <button 
-            style={{backgroundColor: "blue", color: "white"}} 
-            onClick={() => click()}
-        >
-            Blue Button
-        </button>
+        <Button color={color} click={click}></Button>
     )
 }
 
