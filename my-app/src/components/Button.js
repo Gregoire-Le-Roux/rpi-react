@@ -7,9 +7,9 @@ function Button(props) {
     return(
         <button 
             style={{backgroundColor: color, color: "white"}} 
-            onClick={() => props.click !== undefined ? props.click() : console.log("click")}
+            onClick={() => props.clickHandler !== undefined ? props.clickHandler() : console.log("click")}
         >
-            {color + " Button"}
+            {color + " Button"}{props.nbClick !== undefined ? " : " + props.nbClick : null}
         </button>
     )
 }

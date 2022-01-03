@@ -1,7 +1,7 @@
 import './App.css';
 import BlueButton from './components/BlueButton';
 import Button from './components/Button';
-import ShowData from './components/ShowData';
+import ShowBooks from './components/ShowBooks';
 
 function App() {
   const data = [
@@ -13,8 +13,7 @@ function App() {
       title: "Deuxième Titre",
       description: "Deuxième description"},
     {
-      title: "Troisième Titre",
-      description: "Troisième description"}
+      title: "Troisième Titre",}
   ]
 
   return (
@@ -22,7 +21,7 @@ function App() {
       <h2>Let's get started!</h2>
       <p><BlueButton></BlueButton></p>
       <p><Button></Button></p>
-      <ShowData data={data}></ShowData>
+      <ShowBooks books={data}></ShowBooks>
     </div>
   );
 }
