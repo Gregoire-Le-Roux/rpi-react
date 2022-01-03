@@ -2,15 +2,19 @@ import { useState } from 'react';
 
 function ShowBook(props) {
     console.log(props);
-    const [title, setTitle] = useState(props.book.title !== undefined ? props.book.title : "Aucun titre")
-    const [description, setDescription] = useState(props.book.description !== undefined ? props.book.description : "Aucune description")
+    const [book, setBook] = useState({
+        title: props.book.title !== undefined ? props.book.title : "Aucun titre",
+        description: props.book.description !== undefined ? props.book.description : "Aucune description"
+    })
+    // const [title, setTitle] = useState(props.book.title !== undefined ? props.book.title : "Aucun titre")
+    // const [description, setDescription] = useState(props.book.description !== undefined ? props.book.description : "Aucune description")
 
-    const clickTitleHandler = () => {
-        setTitle("Updated Title !");
-    }
-
-    const clickDescriptionHandler = () => {
-        setDescription("Updated Description !");
+    const clickHandler = (e) => {
+        let name = e.target.name
+        setBook(book => ({
+            ...book,
+            [name]: "Updated " + name +" !",
+        }));
     }
 
     return(
@@ -18,8 +22,8 @@ function ShowBook(props) {
             <div>
                 <div>
                     <h2>{"Livre n°" + props.bookNumber}</h2>
-                    <p>{"Titre : " + title} <button onClick={clickTitleHandler}>Add Title</button></p>
-                    <p>{"Description : " + description} <button onClick={clickDescriptionHandler}>Add Description</button></p>
+                    <p>{"Titre : " + book.title} <button name="title" onClick={clickHandler}>Add Title</button></p>
+                    <p>{"Description : " + book.description} <button name="description" onClick={clickHandler}>Add Description</button></p>
                 </div>
             </div>
         : 

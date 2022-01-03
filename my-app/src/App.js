@@ -1,7 +1,6 @@
 import './App.css';
-// import BlueButton from './components/BlueButton';
-// import Button from './components/Button';
 import ShowBook from './components/ShowBook';
+import FormBook from './components/FormBook';
 
 function App() {
   const data = [
@@ -19,8 +18,7 @@ function App() {
   return (
     <div className="App">
       <h2>Let's get started!</h2>
-      {/* <p><BlueButton></BlueButton></p>
-      <p><Button></Button></p> */}
+      <FormBook></FormBook>
       {data.map((book, index) => (
         <ShowBook key={index} book={book} bookNumber={index+1}></ShowBook>
       ))}
