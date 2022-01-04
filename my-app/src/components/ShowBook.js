@@ -1,14 +1,10 @@
 import { useState } from 'react';
 
 function ShowBook(props) {
-    console.log(props);
     const [book, setBook] = useState({
         title: props.book.title !== undefined ? props.book.title : "Aucun titre",
         description: props.book.description !== undefined ? props.book.description : "Aucune description"
     })
-    // const [title, setTitle] = useState(props.book.title !== undefined ? props.book.title : "Aucun titre")
-    // const [description, setDescription] = useState(props.book.description !== undefined ? props.book.description : "Aucune description")
-
     const clickHandler = (e) => {
         let name = e.target.name
         setBook(book => ({

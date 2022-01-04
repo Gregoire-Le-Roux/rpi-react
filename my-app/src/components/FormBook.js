@@ -1,25 +1,29 @@
 import { useState } from 'react';
 import './FormBook.css'
 
-export default function FormBook() {
+export default function FormBook(props) {
     const [book, setBook] = useState({
         title: "",
         description: "",
     })
 
     const handleChange = (e) => {
-        let value = e.target.value 
-        let name = e.target.name 
+        let value = e.target.value;
+        let name = e.target.name;
         setBook(book => ({
             ...book,
             [name]: value
-        }))
+        }));
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert("Titre: " + book.title + ", Description: " + book.description);
-        console.log("submit")
+        let newBook = {
+            title: book.title,
+            description: book.description,
+        };
+        let newData = [...props.data,newBook];
+        props.setData(newData);
     }
 
     return(
